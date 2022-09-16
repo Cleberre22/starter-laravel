@@ -34,10 +34,7 @@ class AuthController extends Controller
         return response()->json([
                 'status' => 'success',
                 'user' => $user,
-                'authorisation' => [
-                    'token' => $token,
-                    'type' => 'bearer',
-                ]
+                'token' => $token,
             ]);
 
     }
@@ -91,4 +88,8 @@ class AuthController extends Controller
         ]);
     }
 
+    public function currentUser()
+        {
+            return response()->json(Auth::user());
+        }
 }
